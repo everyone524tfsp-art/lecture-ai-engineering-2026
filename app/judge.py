@@ -117,8 +117,8 @@ def judge_prompt(case: dict) -> str:
 def build_judge(model, rubric: str) -> Agent:
     instructions = rubric + (
         "\n\n# 出力の形式\n"
-        "4 つの基準（grounding, scope, hint, clarity）それぞれについて、reason（理由）を先に書き、"
-        "そのあとで verdict を pass / fail / unsure のどれかにしてください。"
+        "4 つの基準（grounding, scope, hint, clarity）それぞれについて、verdict ( pass / fail / unsure) を判定し、"
+        "そのあとで reason（理由） を書いてください"
     )
     return Agent(model, output_type=JudgeResult, instructions=instructions, model_settings={"temperature": 0.0})
 
